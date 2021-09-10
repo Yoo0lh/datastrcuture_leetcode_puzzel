@@ -9,7 +9,7 @@ int   sum_largestarray(int s[], int n)
     int max_range = 0;
     for(int i = 0; i < n; i++)
     {
-        end= end + s[i];
+        end = end + s[i];
         if (max_range < end )
             max_range = end;
         if (end < 0)
