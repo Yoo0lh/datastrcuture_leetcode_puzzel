@@ -1,3 +1,7 @@
+//finde the index to creat the largest seriie of 11
+//example : 
+//          input : { 0, 0, 1, 0, 1, 1, 1, 0, 1, 1 };
+//          output: index 7;
 #include <stdio.h>
 
 int findeIndex(int s[], int n)
@@ -24,7 +28,7 @@ int findeIndex(int s[], int n)
 }
 int main()
 {
-    int c[] = { 0, 0, 1, 0, 1, 1, 0, 0, 1, 1 };
+    int c[] = { 0, 0, 1, 0, 1, 1, 1, 0, 1, 1 };
     int len = sizeof(c)/ sizeof(c[0]);
     printf("index is ====> %d\n", findeIndex(c, len));
     return(0);
