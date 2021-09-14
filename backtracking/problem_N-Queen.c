@@ -31,40 +31,46 @@
                 0  0  0  0  0  1  0  0 
                 0  0  1  0  0  0  0  0 
 *************************************************************************/
-#include <stdbool.h>
 #include <stdio.h>
-#include <unistd.h>
 #define N 4
-bool    keep(int s[N][N], int row, int colm)
+int    isNotMate(int s[N][N], int row, int colm)
 {
     int i;
     int j;
+    //check row on left side
     for (i = 0; i < colm; i++)
         if (s[row][i])
-            return(false);
+            return(0);
+            //check upper diagonal on left side;
     for(i = row, j = colm; i >= 0 && j >= 0; i--, j--)
         if (s[i][j])
-            return(false);
+            return(0);
+    //check lower diagonale on left side
     for(i = row, j = colm; j >= 0 && i < N; i++, j--)
         if(s[i][j])
-            return(false);
-    return(true);
+            return(0);
+    return(1);
 }
-bool    NQueen(int  s[N][N], int colm)
+int    NQueen(int  s[N][N], int colm)
 {
     if (colm  >= N)
-        return (true);
+        return (1);
+    //try palicing this queen in all rows on by on;
     for(int i = 0; i < N; i++)
-    {
-        if (keep(s, i, colm))
+    {   
+        //chek if the queen can be placed on s[i][colm];
+        if (isNotMate(s, i, colm))
         {
             s[i][colm] = 1;
-            if(NQueen(s, colm + 1))
-                return(true);
+            //recur to place rest of the queens;
+            if(NQueen(s, colm + 1) == 1) 
+                return(1);
+            //if palicng the queen is doesn't happend, then remove queen from s[i][colm];
             s[i][colm] = 0;
         }
     }
-    return(false);
+    //if the queen cannot be placed in any row in this colm  then return 0;
+    return(0);
 }
 void    printfNQueen(int s[N][N])
 {
@@ -80,7 +86,7 @@ int main()
                     { 0, 0, 0, 0 },
                     { 0, 0, 0, 0 },
                     { 0, 0, 0, 0 } };
-    if (NQueen (c, 0) == false){
+    if (NQueen (c, 0) == 0){
         printf("FAILED (does not exist)\n");
 
     }
