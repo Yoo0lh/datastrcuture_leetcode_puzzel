@@ -1,5 +1,6 @@
 /*******************************************************************
 *   finde all binary string that can be formed from a wildcard pattern
+*   using recursive
 *   example :
 *            input : ?011?00?1?
 *            output: 0011000010
