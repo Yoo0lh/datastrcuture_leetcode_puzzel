@@ -24,6 +24,7 @@ void    inorder(node *nod)
         printf(" %d ", nod->data);
         inorder(nod->right);
     }
+
 }
 /*
 int main()
