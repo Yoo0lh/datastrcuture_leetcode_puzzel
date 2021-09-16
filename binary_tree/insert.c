@@ -1,3 +1,9 @@
+/*******************************************************************
+*   insert node in binary tree iterativley
+*   time complexity : O(h), wher h is height of binary search
+*   tree. in worst case the height is equal to number of nodes.
+*************************************************************************/
+
 #include <stdio.h>
 #include "binary.h"
 node    *insert(node *new, int x)
@@ -19,19 +25,19 @@ void    inorder(node *nod)
         inorder(nod->right);
     }
 }
+/*
 int main()
 {
-    node *p;
-    p = creat(50);
-    insert(p, 10);
-    insert(p, 13); 
-    insert(p, 60);
-    insert(p, 3);
-    //inorder(p);
-    while (p != NULL)
-    {   p = p->left;
-        printf("%d ", p->data);
-        p = p->right;
-    }
+    node *root ;
+    root = creat(50);
+    insert(root, 30);
+    insert(root, 20);
+    insert(root, 40);
+    insert(root, 70);
+    insert(root, 60);
+    insert(root, 80);
+    inorder(root);
+   
     return(0);
 }
+*/
