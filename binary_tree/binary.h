@@ -1,5 +1,6 @@
 #ifndef BINARY_H
 # define BINARY_H
+# define COUNT 10;
 typedef struct node
 {
     int data;
