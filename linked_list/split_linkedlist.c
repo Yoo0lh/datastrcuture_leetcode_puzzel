@@ -1,3 +1,14 @@
+/*******************************************************************
+*   split nodes of linked list to two 
+*   given a list, split it inot two sublests
+*   time complexity of the above solution is O(n);
+*   example : input : 1-->2-->3-->4-->-->5-->NULL
+*             output: split1 = 1-->2-->3-->NULL;
+*                     split2 = 4-->5-->NULL;
+*
+*   NOTE : you can use pythontutor to understan whats goig on 
+*************************************************************************/
+
 #include <stdio.h>
 #include "linked.h"
 int len_linked(struct node *elem)
@@ -17,7 +28,7 @@ void    split(struct node *elem, struct node **split1, struct node **split2)
     if(len < 2)
     {
         *split1 = elem;
-        split2 = NULL;
+        *split2 = NULL;
         return ;
     }
     tmp = elem;
