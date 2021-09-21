@@ -25,6 +25,8 @@ int win()
         return (1);
     else if (s[1] == s[4] && s[4] == s[7])
         return (1);
+    else if(s[2] == s[5] && s[5] == s[8])
+        return (1);
     else if (s[3] == s[6] && s[6] == s[9])
         return (1);
     else if (s[1] == s[5] && s[5] == s[9])
@@ -56,7 +58,7 @@ int main()
             put = 'X';
         else  
             put = 'O';
-        if (!(choice > 0 && choice < 9))
+        if (!(choice > 0 && choice <= 9))
         {
             printf ("PLEAS ENTER NUMBER");
             return (0);
