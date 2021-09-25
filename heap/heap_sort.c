@@ -6,7 +6,7 @@ void    swap(int *a, int *b)
     *a = *b;
     *b = tmp;
 }
-void    heapfly(int s[], int n, int i)
+void    heapify(int s[], int n, int i)
 {   
     int larg = i;
     int left = 2 * i + 1;
@@ -18,18 +18,18 @@ void    heapfly(int s[], int n, int i)
     if (larg != i)
     {
         swap(&s[i], &s[larg]);
-        heapfly(s, n, larg);
+        heapify(s, n, larg);
     }
 }
 
 void sort_heap(int s[], int n)
 {
-    for(int i =  n / 2 -1; i >= 0; i--)
-        heapfly(s, n, i);
-    for(int i = n - 1; i > 0; i--)
+    for(int i = n / 2 - 1; i >= 0; i--)
+        heapify(s, n, i);
+    for(int i = n - 1; i >= 0; i--)
     {
         swap(&s[0], &s[i]);
-        heapfly(s, i, 0);
+        heapify(s, i, 0);
     }
 }
 

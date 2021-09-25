@@ -12,7 +12,7 @@ void    MAXheapify(int *s, int i, int n)
     int left = 2 * i + 1;
     int right = 2 * i + 2;
     int largest = i;
-    if (left <n && s[left] > s[i])
+    if (left < n && s[left] > s[i])
         largest = left;
     if(right < n && s[right] > s[largest])
         largest = right;
