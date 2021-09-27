@@ -1,14 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdbool.h>
-#define CHARS 256
-#define alphbet 26
+#include "trie.h"
 
-struct trienode{
-    struct trienode *childe[alphbet];
-    bool terminal;
-};
 struct trienode *newtrienode()
 {
     struct trienode *newnode = (struct trienode *)malloc(sizeof (struct trienode));
@@ -30,6 +24,42 @@ void insert(struct trienode *root, char *s)
     }
     tmp->terminal = true;
 }
+bool isleaf(struct trienode *root)
+{
+    return (root->terminal != false);
+}
+void    display(struct trienode *root, char s[], int lev)
+{
+    if(isleaf(root))
+    {
+        s[lev] = '\0';
+        printf("%s\n",s);
+    }
+    int i;
+    for(i = 0; i < alphbet; i++)
+    {
+        if(root->childe[i])
+        {
+            s[lev] = i + 'a';
+            display(root->childe[i], s, lev + 1);
+        }
+    }
+}
+// int main()
+// {
+//     char s[20];
+//     struct trienode *node = NULL;
+//     node = newtrienode();
+//     insert(node, "hello");
+//     insert(node, "allo");
+//     insert(node, "alli");
+//     insert(node, "mam");
+//     insert(node, "pip");
+//     int lev = 0;
+//     display(node, s, lev);
+//     return 0;
+// }
+//=============================================================
 // void printtrie_rec(struct trienode *root, unsigned char *prefix, int len)
 // {
 //     unsigned char newprefix[len + 1];
@@ -54,38 +84,3 @@ void insert(struct trienode *root, char *s)
 //     }
 //     printtrie_rec(root, NULL, 0);
 // }
-bool isleaf(struct trienode *root)
-{
-    return (root->terminal != false);
-}
-void    display(struct trienode *root, char s[], int lev)
-{
-    if(isleaf(root))
-    {
-        s[lev] = '\0';
-        printf("%s\n",s);
-    }
-    int i;
-    for(i = 0; i < alphbet; i++)
-    {
-        if(root->childe[i])
-        {
-            s[lev] = i + 'a';
-            display(root->childe[i], s, lev + 1);
-        }
-    }
-}
-int main()
-{
-    char s[20];
-    struct trienode *node = NULL;
-    node = newtrienode();
-    insert(node, "hello");
-    insert(node, "allo");
-    insert(node, "alli");
-    insert(node, "mam");
-    insert(node, "pip");
-    int lev = 0;
-    display(node, s, lev);
-    return 0;
-}
