@@ -1,65 +1,50 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "trie.h"
 bool    haschilde(struct trienode *root)
 {
-    if (root == NULL)
-        return false;
     for(int i = 0; i < alphbet; i++)
         if(root->childe[i] != NULL)
-            return true; 
-    return false;
+            return false;
+    return true;
 }
-struct trienode *delet_rec(struct trienode *root, char *s, bool *res)
+struct trienode *delete(struct trienode *root, char *s, int n)
 {
     if (root == NULL)
-        return false;
-    if (s[0] != '\0')
+        return NULL;
+    int len = strlen(s);
+    if (n == len)
     {
-        if(root->terminal)
-        {
+        if (root->terminal)
             root->terminal = false;
-            *res = true;
-            if (haschilde(root) == false)
-            {
-                free(root);
-                root = NULL; 
-            }
+        if(haschilde(root))
+        {
+            free(root);
+            root = NULL;
         }
         return root;
-
     }
-    root->childe[(int)s[0]] = delet_rec(root->childe[(int)s[0]], s + 1, res);
-    if (*res && haschilde(root) == false && root->terminal == false)
+    int key = s[n] - 'a';
+    root->childe[key] = delete(root->childe[key],s, n + 1);
+    if(haschilde(root) && root->terminal == false)
     {
         free(root);
         root = NULL;
     }
     return root;
 }
-bool    delete(struct trienode **root, char *s)
-{
-    bool res = false ;
-    if (*root == NULL)
-        return false;
-
-    *root = delet_rec(*root, s, &res);
-    return res;
-}
 int main()
 {
-    bool res;
     char s[20];
+    //struct trienode *root2;
     struct trienode *root = newtrienode ();
     insert(root, "hello");
     insert(root, "hey");
+    insert(root, "helli");
     insert(root, "pip");
     insert(root, "strang");
-    res = delete(&root, "pip");
-    if (res == false)
-        printf("===FAILD====\n");
-    else
-        printf("===SUCCSESS===\n");
+    delete(root, "hello", 0);
     display(root, s, 0);
     return 0;
 }
