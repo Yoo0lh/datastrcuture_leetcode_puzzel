@@ -28,18 +28,6 @@ void     sort(int *s, int len)
                 s[j] = tmp;
             }
 }
-// void push(int **new, int *s)
-// {
-     
-//     for (int row; row < row + 1; row++)
-//     {
-//         for (int n = 0; n < 3; n++)
-//         {
-//            new[row][n] = s[n];
-//         }
-//     }
-//     printf ("row ---> %d", row );
-// }
 void triple2(int *s, int len, int target)
 {
     sort(s, len);
@@ -75,3 +63,15 @@ int main()
     
     return 0;
 }
+// void push(int **new, int *s)
+// {
+     
+//     for (int row; row < row + 1; row++)
+//     {
+//         for (int n = 0; n < 3; n++)
+//         {
+//            new[row][n] = s[n];
+//         }
+//     }
+//     printf ("row ---> %d", row );
+// }
