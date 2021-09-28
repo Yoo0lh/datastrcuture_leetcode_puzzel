@@ -12,12 +12,12 @@ int montain(int *s, int len )
         if (s[i] > s[i - 1] && s[i] > s[i + 1])
         {
             int j = i;
-            while(s[j] > s[j - 1])
+            while(s[j] > s[j - 1] && j >= 1)
             {
                 prev_nums++;
                 j--;
             }
-            while (s[i] > s[i + 1])
+            while (s[i] > s[i + 1] && i <= len - 1)
             {
                 after_nums++;
                 i++;
