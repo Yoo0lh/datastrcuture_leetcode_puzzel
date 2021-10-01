@@ -1,42 +1,38 @@
 #include <string.h>
 #include <stdio.h>
-#define MAX(a, b) (((a) > (b)) ? (a) : (b))
-//MAX(x, y) (((x) > (y)) ? (x) : (y))
-int chek(char *s, char c, int pos)
+#include <stdbool.h>
+#define MAX(x, y) (((x) > (y)) ? (x) : (y))
+bool chek(char *s, char i, int j)
 {
-    int i = 0;
-    while(i < pos)
+    bool tmp[26];
+    (void)s;
+    for(int k = i; k <= j; k++)
     {
-        if (s[i] == c)
-            return 0;
+        if (tmp[k] == true)
+            return false;
+        tmp[k] = true; 
     }
-    return i;
+    return true;
 }
 int     largest_substring(char *s)
 {
-    int i = 0;
-    int j = 0; 
-    int max = 0;
-    int cur = 0;
-    while (s[i])
+
+    int res = 0;
+    int len = strlen(s);
+    for (int i = 0; i < len; i++)
     {
-        int ch = s[i];
-        j = chek(s, ch, i);
-        if (j != 0)
+        for(int j = i; j < len; j++)
         {
-            j++;
-            cur++;
+            if(chek(s, i, j)){
+                res = MAX(res, j - i + 1);
+            }
         }
-        j = i;
-        cur++;
-        i++;
-        max = MAX(cur, max);
     }
-    return max;
+    return res;
 }
 int main()
 {
-    char s[] = "aabcdb";
+    char s[] = "geeksforgeeks";
     int res = largest_substring(s);
     printf("%d ", res);
     return 0;
