@@ -3,11 +3,11 @@ int binara_search(int *s, int len, int find)
 {
     int hl;
     int i = 0;
-    int e = len - 1;
+    int e = len ;
 
-    while(i <= e)
+    while(i < e)
     {
-        int hl = (i + e)/2;
+        int hl = (e + i)/2;
         if (s[hl] == find)
             return hl;
         else if (s[hl] > find)
@@ -21,6 +21,6 @@ int main()
 {
     int c[] = {5,10,15,20,40,50,100};
     int len = sizeof(c)/sizeof(c[0]);
-    printf("res ---> %d ", binara_search(c, len, 5));
+    printf("res ---> %d ", binara_search(c, len, 100));
     return 0;
 }
