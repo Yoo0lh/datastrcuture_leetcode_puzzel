@@ -48,12 +48,12 @@ int myAtoi(char * s){
             signe = -1;      
         i++;
     }
-    int res = 0;
+    long long int res = 0;
     while (s[i] != '\0' && (s[i] >= '0' && s[i] <= '9'))
     {
         res *= 10 ;
         res += s[i] - '0';
-        if (res * signe > INT_MAX) 
+        if (res * signe >= INT_MAX) 
             return 2147483647;
         else if (res * signe < INT_MIN)
             return -2147483648;
@@ -63,7 +63,7 @@ int myAtoi(char * s){
 }
 int main()
 {
-    char *c ="2147483648" ;
+    char *c = "-91283472332";
     int res = myAtoi(c);
     printf("%d \n", res);
     printf("%d ", atoi(c));
