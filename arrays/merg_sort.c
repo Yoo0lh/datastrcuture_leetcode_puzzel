@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #define N 15
-
+https://leetcode.com/problems/longest-common-prefix/submissions/
 void    Merg(int s1[], int s2[], int n1 , int n2)
 {
     if (n2 == n1)

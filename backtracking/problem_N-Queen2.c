@@ -6,7 +6,7 @@
 
 #include <stdio.h>
 #include <string.h>
-#define N 8
+#define N 10
 void *ft_memset(void *str, int c, size_t n)
 {
         size_t i;

@@ -1,4 +1,4 @@
-/*******************************************************************
+/***************************************************************************
 *   sort an array according to the order defind by another array
 *   given s1 and s2, sor s1 in sush a way thwt the relativ order
 *   among the elements will be same as those arre in s2, for the elemnts not
@@ -10,7 +10,7 @@
 *           output: 2 2 1 1 8 8 3 5 6 7 9 ;
 *
 * 
-*************************************************************************/
+*****************************************************************************/
 #include <stdio.h>
 int    occurence(int s[], int start, int end, int find)
 {
