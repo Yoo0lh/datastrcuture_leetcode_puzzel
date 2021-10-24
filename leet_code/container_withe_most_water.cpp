@@ -13,7 +13,7 @@ int maxArea(vector<int>& height) {
 }
 int trytwo(vector<int>&height)
 {
-	int ares = 0
+	int ares = 0;
 	int i = 0;
 	int len = height.size() - 1;
 	while (i < len){
