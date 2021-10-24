@@ -23,7 +23,7 @@ int  rain(int *s, int len)
 }
 int  main ()
 {
-    int s[] = {0,1,0,2,1,0,1,3,2,1,2,1};
+    int s[] = {1,8,6,2,5,4,8,3,7};
     int len = sizeof(s)/sizeof(s[0]);
     int res = rain(s, len);
     printf ("result ---> %d", res);
