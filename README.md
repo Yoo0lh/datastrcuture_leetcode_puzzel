@@ -1,5 +1,5 @@
 # datastructur and algorithme 
-this repository conntains data structur and algoritme in c language </br>
-Data structure are used store data. </br>
-C language has many datat structur like <strong> array , stack, queue, linked list, tree ... </srtong> ect.</br>
-<li><a linke = "array">Array</a></li>
+this repository conntains data structur and algoritme in c/c++ language and leetcode problems</br>
+Data structure are used to store data. </br>
+c/c++ language has many datat structur like <strong> array , stack, queue, linked list, tree ... </srtong> ect.</br>
+https://leetcode.com/chabana/
